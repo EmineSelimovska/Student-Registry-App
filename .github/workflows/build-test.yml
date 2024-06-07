@@ -10,7 +10,23 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  security_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout of repo
+      uses: actions/checkout@v4
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: "npm"
+    - name: Install dependancies
+      run: npm install
+    - name: Run Integration test
+      run: npm run test-npm-security
+
+
+  integretion_test:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout of repo
