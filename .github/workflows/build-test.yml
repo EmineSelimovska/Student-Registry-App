@@ -28,6 +28,7 @@ jobs:
 
   integretion_test:
     runs-on: ubuntu-latest
+    needs: security_test
     steps:
     - name: Checkout of repo
       uses: actions/checkout@v4
